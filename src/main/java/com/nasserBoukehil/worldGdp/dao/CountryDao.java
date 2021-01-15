@@ -6,10 +6,15 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Service;
 
 import com.nasserBoukehil.worldGdp.model.Country;
 import com.nasserBoukehil.worldGdp.rowMapper.CountryRowMapper;
 
+import lombok.Setter;
+
+@Service
+@Setter
 public class CountryDao {
 	
 	@Autowired NamedParameterJdbcTemplate namedParamJdbcTemplate;
@@ -61,6 +66,14 @@ public class CountryDao {
 						? REGION_WHERE_CLAUSE : "")
 				+ PAGINATION_CLAUSE,
 				params, new CountryRowMapper()); 
+	}
+	
+	public int getCountriesCount(Map<String, Object> params) {
+		return namedParamJdbcTemplate.queryForObject("SELECT COUNT(*) FROM country c WHERE 1=1"
+				+ (!params.get("search").toString().isBlank() ? SEARCH_WHERE_CLAUSE : "")
+				+ (!params.get("continent").toString().isBlank() ? CONTINENT_WHERE_CLAUSE: "")
+				+ (!params.get("region").toString().isBlank() ? REGION_WHERE_CLAUSE : ""),
+				params, Integer.class);
 	}
 	
 	public Country getCountryDetail(String code) {
