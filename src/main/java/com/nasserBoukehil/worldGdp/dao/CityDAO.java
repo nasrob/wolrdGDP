@@ -30,7 +30,7 @@ public class CityDAO {
 		return getCities(countryCode, null);
 	}
 
-	private List<City> getCities(String countryCode, Integer pageNo) {
+	public List<City> getCities(String countryCode, Integer pageNo) {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("code", countryCode);
 		if (pageNo != null) {
@@ -44,6 +44,16 @@ public class CityDAO {
 				+ "FROM city WHERE countrcode = :code"
 				+ "ORDER BY Population DESC"
 				+ ((pageNo != null) ? "LIMIT :offset, :size " : ""),
+				params, new CityRowMapper());
+	}
+	
+	public City getCityDetail(Long cityId) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("id", cityId);
+		return namedParameterJdbcTemplate.queryForObject("SELECT id, name, " 
+				+ " countrycode country_code, "
+				+ " district, population "
+				+ " FROM city WHERE id = :id",		
 				params, new CityRowMapper());
 	}
 	
