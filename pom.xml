@@ -136,6 +136,21 @@
 	</dependencies>
 	<build>
 		<finalName>worldGdp</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<executions>
+					<execution>
+			            <id>default-war</id>
+			            <phase>prepare-package</phase>			    
+			            <configuration>
+			            	<failOnMissingWebXml>false</failOnMissingWebXml>
+			            </configuration>
+			          </execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 </project>
 
