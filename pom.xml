@@ -78,6 +78,13 @@
 			<version>1.1.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
 		<!-- Test Dep -->
 
 		<dependency>
@@ -142,12 +149,12 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<executions>
 					<execution>
-			            <id>default-war</id>
-			            <phase>prepare-package</phase>			    
-			            <configuration>
-			            	<failOnMissingWebXml>false</failOnMissingWebXml>
-			            </configuration>
-			          </execution>
+						<id>default-war</id>
+						<phase>prepare-package</phase>
+						<configuration>
+							<failOnMissingWebXml>false</failOnMissingWebXml>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 		</plugins>

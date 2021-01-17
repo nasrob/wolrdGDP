@@ -70,9 +70,9 @@ public class CountryDao {
 	
 	public int getCountriesCount(Map<String, Object> params) {
 		return namedParamJdbcTemplate.queryForObject("SELECT COUNT(*) FROM country c WHERE 1=1"
-				+ (!params.get("search").toString().isBlank() ? SEARCH_WHERE_CLAUSE : "")
-				+ (!params.get("continent").toString().isBlank() ? CONTINENT_WHERE_CLAUSE: "")
-				+ (!params.get("region").toString().isBlank() ? REGION_WHERE_CLAUSE : ""),
+				+ (!params.get("search").toString().isEmpty() ? SEARCH_WHERE_CLAUSE : "")
+				+ (!params.get("continent").toString().isEmpty() ? CONTINENT_WHERE_CLAUSE: "")
+				+ (!params.get("region").toString().isEmpty() ? REGION_WHERE_CLAUSE : ""),
 				params, Integer.class);
 	}
 	
