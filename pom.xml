@@ -22,6 +22,7 @@
 		<junit.jupiter.version>5.0.1</junit.jupiter.version>
 		<junit.vintage.version>4.12.1</junit.vintage.version>
 		<junit.platform.version>1.0.1</junit.platform.version>
+		<jackson.version>2.12.0</jackson.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -83,6 +84,12 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>4.0.1</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
 		</dependency>
 
 		<!-- Test Dep -->
