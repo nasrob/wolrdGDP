@@ -23,6 +23,8 @@
 		<junit.vintage.version>4.12.1</junit.vintage.version>
 		<junit.platform.version>1.0.1</junit.platform.version>
 		<jackson.version>2.12.0</jackson.version>
+		<thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
+		<thymeleaf-layout-dialect>2.4.1</thymeleaf-layout-dialect>
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven.compiler.source>11</maven.compiler.source>
 	</properties>
@@ -94,8 +96,19 @@
 			<version>${jackson.version}</version>
 		</dependency>
 
-		<!-- Test Dep -->
+		<!-- ThymeLeaf -->
+		<dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf-spring5</artifactId>
+			<version>${thymeleaf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>nz.net.ultraq.thymeleaf</groupId>
+			<artifactId>thymeleaf-layout-dialect</artifactId>
+			<version>2.4.1</version>
+		</dependency>
 
+		<!-- Test Dep -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
